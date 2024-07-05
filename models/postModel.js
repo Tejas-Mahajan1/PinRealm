@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const plm = require("passport-local-mongoose");
 
 
 const postSchema = new mongoose.Schema(
@@ -19,5 +20,7 @@ const postSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+postSchema.plugin(plm);
 
 module.exports = mongoose.model("Post", postSchema);
