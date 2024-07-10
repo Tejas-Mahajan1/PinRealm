@@ -12,7 +12,6 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: true,
     },
     posts: [
       {
@@ -30,7 +29,7 @@ const userSchema = new mongoose.Schema(
       unique: true,
       match: [/^\S+@\S+\.\S+$/, "Please use a valid email address"],
     },
-    fullName: {
+    fullname: {
       type: String,
       required: true,
     },

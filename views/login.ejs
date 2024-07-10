@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Page</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/login.css" />
   </head>
   <body>
     <div class="container">
@@ -15,14 +15,12 @@
           alt="pin logo"
           class="img1"
         />
-        <p class="header">Sign Up to see more</p>
-  <form action="/register" method="post">
-        <input type="email" placeholder="Email" name="email" class="detail" /><br />
+        <p class="header">Login</p>
+  <form action="/login" method="post">
         <input type="text" placeholder="Username" name="username" class="detail" /><br />
-        <input type="text" placeholder="Full name" name="fullname" class="detail" /><br />
         <input type="password" name="password" placeholder="Password" class="detail" />
         <p id="forgot"><a href="/forgot" >Forgot your password?</a></p>
-       <input class="btn int" type="submit" value="Register"/>
+       <input class="btn int" type="submit" value="Login"/>
   </form>
         <!-- <p class="or">OR</p>
         <button class="btn fbk">
@@ -46,7 +44,7 @@
             <b>Terms of Service, Privacy policy.</b>
           </p>
           <hr />
-          <p>Already have an account &nbsp; &nbsp;<a href="/login">Login</a></p>
+          <p>Not on Pinterest yet? <a href="/">Sign up</a></p>
         </footer>
       </div>
     </div>
