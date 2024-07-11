@@ -79,7 +79,7 @@ router.post( "/upload",
    user.posts.push(post._id)
    await user.save();
 
-    res.send("Done");
+    res.redirect('/profile')
   }
 );
 
