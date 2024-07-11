@@ -50,7 +50,7 @@ router.get("/logout", function (req, res, next) {
 router.get("/profile", isLoggedIn, async function (req, res, next) {
   const user = await userModel.findOne({
     username: req.session.passport.user,
-  });
+  }).populate('posts')
   res.render("profilePage", { user });
 });
 
@@ -58,13 +58,30 @@ router.get("/feed", isLoggedIn, function (req, res, next) {
   res.render("feed");
 });
 
-router.post("/upload", upload.single("file"), function (req, res, next) {
-  if (!req?.file) {
-    return res.status(404).send("No file is uploaded.");
+router.post( "/upload",
+  isLoggedIn,
+  upload.single("file"),
+  async function (req, res, next) {
+    if (!req?.file) {
+      return res.status(404).send("No file is uploaded.");
+    }
+    console.log("File Uploaded Successfully !!");
+    const user = await userModel.findOne({
+      username: req.session.passport.user
+    });
+
+    const post = await postModel.create({
+      image: req.file.filename,
+      postText: req.body.caption,
+      user: user._id,
+    });
+
+   user.posts.push(post._id)
+   await user.save();
+
+    res.send("Done");
   }
-  console.log("File Uploaded Successfully !!");
-  res.redirect("/profile");
-});
+);
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
