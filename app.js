@@ -6,6 +6,7 @@ var logger = require('morgan');
 var expressSession = require('express-session');
 let passport = require('passport')
 const User =  require('./models/userModel')
+const os = require('os')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -40,6 +41,8 @@ app.use('/users', usersRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+// console.log(os.cpus().length) // to get the number of core/threads we can use
 
 // error handler
 app.use(function(err, req, res, next) {
