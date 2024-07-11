@@ -16,9 +16,12 @@
           class="img1"
         />
         <p class="header">Login</p>
+        <% if(error.length > 0){ %>
+          <p class="error"> <%= error %> </p>
+       <% } %>
   <form action="/login" method="post">
-        <input type="text" placeholder="Username" name="username" class="detail" /><br />
-        <input type="password" name="password" placeholder="Password" class="detail" />
+        <input type="text" placeholder="Username *" name="username" class="detail"/><br />
+        <input type="password" name="password" placeholder="Password *" class="detail"/>
         <p id="forgot"><a href="/forgot" >Forgot your password?</a></p>
        <input class="btn int" type="submit" value="Login"/>
   </form>

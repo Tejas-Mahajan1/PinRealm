@@ -7,6 +7,8 @@ var expressSession = require('express-session');
 let passport = require('passport')
 const User =  require('./models/userModel')
 const os = require('os')
+const flash = require('connect-flash')
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -17,6 +19,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(flash())
 app.use(expressSession({
   resave : false,
   saveUninitialized : false,

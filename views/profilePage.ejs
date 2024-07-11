@@ -21,12 +21,16 @@
             alt="Profile Picture"
           />
         </div>
-        <h2 class="name">Tejas Mahjan</h2>
-        <h3 class="username">CaptainTj07</h3>
+        <h2 class="name"><%= user.fullname %></h2>
+        <h3 class="username">@<%= user.username %></h3>
         <p class="tagline">Hustle</p>
         <p class="description">Passionate Web Dev and Gamer !!</p>
         <a href="#" class="button">Settings</a>
         <a href="/logout" class="btn-logout">Logout</a>
+        <form action="/upload" method="post" id="post-form" enctype="multipart/form-data">
+          <input type="file" name="file" id="post-input">
+          <input type="submit" value="Submit" class="button-post">
+        </form>
       </div>
     </div>
     <div class="container d-flex justify-content-evenly">

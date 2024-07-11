@@ -41,6 +41,13 @@ body {
   margin-bottom: 20px;
   line-height: .9;
 }
+.error{
+  font-size: 15px;
+  color: red;
+  text-align: center;
+  text-transform: capitalize;
+  margin: 10px 0;
+}
 
 .detail {
   width: 100%;
